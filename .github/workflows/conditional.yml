@@ -1,14 +1,9 @@
-name: example-workflow
-on: [push]
+name: Context Examples
+on: ['push']
 jobs:
-  hello-world:
-    if: github.repository == 'lopezr17/Github-Examples'
+  my-context:
     runs-on: ubuntu-latest
     steps:
-      - name: "Hello World"
-        run:  echo "Hello World!"
-  goodbye-moon:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Goodbye Moon"
-        run:  echo "Goodbye Moon!"
+      - name: "my steps"
+        run:  echo "Hello $MY_ACTION"
+        env: ${{ github.action}}
